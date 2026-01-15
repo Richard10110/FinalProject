@@ -1,7 +1,7 @@
 import socket
 import pickle
 import json
-import mongo_op
+import functions_oop
 
 client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 client.connect(("127.0.0.1",2020))
@@ -14,7 +14,7 @@ def file_info():
         if action == 'upload':
             fn = input("file name: ")
 
-            file_breaker = mongo_op.file_information(fn)
+            file_breaker = functions_oop.file_information(fn)
             finalized_data = file_breaker.get_pickled()
 
             client.send(finalized_data)

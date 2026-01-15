@@ -1,5 +1,5 @@
 import threading
-import mongo_op
+import functions_oop
 import socket
 import pickle
 import json
@@ -16,7 +16,7 @@ def server_handle():
 
 
 def server_response(cli):
-    central_point = mongo_op.mongo()
+    central_point = functions_oop.mongo()
     while True:
         action = cli.recv(1024).decode()
         if action == "upload":
